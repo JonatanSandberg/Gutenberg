@@ -5,34 +5,51 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Gutenberg Book Finder</title>
         <link rel="stylesheet" href="styles.css" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
     </head>
     <body>
         <header>
-            <h1>The Guten-search</h1>
-            <form class="form-search" action="">
-                <section class="form-group search">
-                    <input
-                        type="text"
-                        id="searchInput"
-                        placeholder="Search books..."
-                    />
-                    <button id="searchButton">
-                        <img src="./assets/search-grey.svg" alt="Search icon" />
-                    </button>
-                </section>
-                <section class="form-group info">
-                    <label for="subjects">Subjects</label>
-                    <input type="checkbox" id="subjects" name="subjects" />
-                    <label for="language">Language</label>
-                    <input type="checkbox" id="language" name="language" />
-                    <label for="translators">Translators</label>
-                    <input
-                        type="checkbox"
-                        id="translators"
-                        name="translators"
-                    />
-                </section>
-            </form>
+            <figure>
+                <img
+                    src="./assets/gutenberg-svgrepo-com.svg"
+                    alt="Gutenberg logo"
+                />
+            </figure>
+            <section class="search-container">
+                <h1>The Guten-Search</h1>
+                <form class="form-search" action="">
+                    <section class="form-group search">
+                        <input
+                            type="text"
+                            id="searchInput"
+                            placeholder="Search books or authors..."
+                        />
+                        <button id="searchButton">
+                            <figure id="searchFigure">
+                                <img
+                                    src="./assets/search-grey.svg"
+                                    alt="Search icon"
+                                />
+                            </figure>
+                        </button>
+                    </section>
+                    <section class="form-group options">
+                        <label for="subjects">Subjects</label>
+                        <input type="checkbox" id="subjects" name="subjects" />
+                        <label for="language">Language</label>
+                        <input type="checkbox" id="language" name="language" />
+                        <label for="translators">Translators</label>
+                        <input
+                            type="checkbox"
+                            id="translators"
+                            name="translators"
+                        />
+                    </section>
+                </form>
+            </section>
         </header>
         <main>
             <div id="results"></div>

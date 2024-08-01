@@ -14,36 +14,83 @@ header {
     padding: 1rem;
     width: 100%;
     text-align: center;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
-header input {
-    padding: 0.5rem;
-    width: 300px;
-    margin-right: 0.5rem;
+header h1 {
+    font-family: "Libre Baskerville", serif;
 }
 
-header button {
+header figure {
     margin: 0;
     padding: 0;
-    padding: 0.5rem 1rem;
+}
+
+header figure img {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+header .search-container {
+    display: flex;
+    flex-direction: column;
+}
+
+header .form-search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header .form-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    margin: 1rem 0;
+}
+
+header .search input {
+    font-size: 1.1rem;
+}
+
+header #searchInput {
+    height: 0 1rem;
+    padding: 1rem;
+    margin-right: 0;
+}
+
+header #searchButton {
     cursor: pointer;
     background-color: #333;
     border: none;
-}
-
-header button img {
-    margin: 0;
+    margin: 0 0 0 0.5rem;
     padding: 0;
 }
 
-#searchInput {
+header #searchInput {
     background-color: #ebebeb;
+}
+
+header .options {
+    display: flex;
+    flex-direction: row;
+}
+
+header .options input {
+    margin-right: 0.5rem;
 }
 
 main {
     padding: 2rem;
     width: 100%;
-    max-width: 800px;
+    min-height: 100vh;
+    background-image: url("https://th.bing.com/th/id/OIP.ZG0oyAVurj5_hGJLSL8l-wAAAA?rs=1&pid=ImgDetMain");
+    background-repeat: repeat;
+    background-size: 100vw;
 }
 
 #results {
@@ -57,10 +104,13 @@ main {
     border: 1px solid #ddd;
     border-radius: 5px;
     background-color: white;
+    opacity: 70%;
 }
 
 .result-item h2 {
     margin: 0 0 0.5rem 0;
+    font-style: italic;
+    font-size: 1.2rem;
 }
 
 .result-item p {

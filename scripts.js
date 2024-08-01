@@ -3,20 +3,23 @@ const subjects = document.querySelector("#subjects");
 const language = document.querySelector("#language");
 const translators = document.querySelector("#translators");
 
-document.getElementById("searchButton").addEventListener("click", async () => {
-    const query = document.getElementById("searchInput").value;
-    if (query) {
-        console.log(`Searching for: ${query}`);
-        const books = await searchBooks(query);
-        if (books) {
-            displayResults(books);
+document
+    .getElementById("searchButton")
+    .addEventListener("click", async (event) => {
+        event.preventDefault();
+        const query = document.getElementById("searchInput").value;
+        if (query) {
+            console.log(`Searching for: ${query}`);
+            const books = await searchBooks(query);
+            if (books) {
+                displayResults(books);
+            } else {
+                console.error("No books found or error in fetching books");
+            }
         } else {
-            console.error("No books found or error in fetching books");
+            console.warn("Search query is empty");
         }
-    } else {
-        console.warn("Search query is empty");
-    }
-});
+    });
 
 const searchBooks = async (query) => {
     try {
@@ -30,6 +33,10 @@ const searchBooks = async (query) => {
         console.error("Error fetching books:", error);
     }
 };
+const convertToUpperCase = (str) => {
+    if (!str) return str;
+    return str.toUpperCase();
+};
 
 const displayResults = (books) => {
     const resultsContainer = document.getElementById("results");
@@ -42,16 +49,40 @@ const displayResults = (books) => {
                 <h2>${book.title}</h2>
                 <p><strong>Authors:</strong> ${book.authors
                     .map((author) => author.name)
-                    .join(", ")}</p>
+                    .join("; ")}</p>
                ${
                    subjects.checked
-                       ? `<p>${
+                       ? `<p><strong>Subjects: </strong>${
                              book.subjects
-                                 ? book.subjects.join(", ")
+                                 ? book.subjects.join("; ")
                                  : "No subjects available."
                          }</p>`
                        : ""
-               }
+               } 
+                ${
+                    language.checked
+                        ? `<p><strong>Languages: </strong>${
+                              book.languages
+                                  ? book.languages
+                                        .map((language) =>
+                                            convertToUpperCase(language)
+                                        )
+                                        .join(", ")
+                                  : "No languages available."
+                          }</p>`
+                        : ""
+                }
+                ${
+                    translators.checked
+                        ? `<p><strong>Translators: </strong>${
+                              book.translators
+                                  ? book.translators
+                                        .map((translator) => translator.name)
+                                        .join("; ")
+                                  : "No translators available."
+                          }</p>`
+                        : ""
+                }
                 <a href="${
                     book.formats["text/html"] || book.formats["text/plain"]
                 }" target="_blank">Read Book</a>
