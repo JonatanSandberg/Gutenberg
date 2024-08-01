@@ -1,20 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gutenberg Book Finder</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <h1>Gutenberg Book Finder</h1>
-        <input type="text" id="searchInput" placeholder="Search books...">
-        <button id="searchButton">Search</button>
-    </header>
-    <main>
-        <div id="results"></div>
-    </main>
-    <script src="scripts.js"></script>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Gutenberg Book Finder</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <header>
+            <h1>The Guten-search</h1>
+            <form class="form-search" action="">
+                <section class="form-group search">
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search books..."
+                    />
+                    <button id="searchButton">
+                        <img src="./assets/search-grey.svg" alt="Search icon" />
+                    </button>
+                </section>
+                <section class="form-group info">
+                    <label for="subjects">Subjects</label>
+                    <input type="checkbox" id="subjects" name="subjects" />
+                    <label for="language">Language</label>
+                    <input type="checkbox" id="language" name="language" />
+                    <label for="translators">Translators</label>
+                    <input
+                        type="checkbox"
+                        id="translators"
+                        name="translators"
+                    />
+                </section>
+            </form>
+        </header>
+        <main>
+            <div id="results"></div>
+        </main>
+        <script src="scripts.js"></script>
+    </body>
 </html>
